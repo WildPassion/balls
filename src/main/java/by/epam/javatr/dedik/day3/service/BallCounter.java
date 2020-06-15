@@ -1,10 +1,10 @@
 package by.epam.javatr.dedik.day3.service;
 
 import by.epam.javatr.dedik.day3.entity.Basket;
-import by.epam.javatr.dedik.day3.entity.Color;
+import by.epam.javatr.dedik.day3.entity.BallColor;
 
 public class BallCounter {
-    public long countBalls(Basket basket, Color color) {
-        return basket.getBalls().stream().filter(ball -> ball.getColor().equals(color)).count();
+    public long countBalls(Basket basket, BallColor color) {
+        return basket.getBalls().stream().filter(ball -> ball.getColor() == color).count();
     }
 }

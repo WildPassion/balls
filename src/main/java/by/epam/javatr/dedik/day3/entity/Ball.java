@@ -1,14 +1,18 @@
 package by.epam.javatr.dedik.day3.entity;
 
+import java.util.StringJoiner;
+
 public class Ball {
+    public static final int MAX_WEIGHT = 50;
+
     private int weight;
-    private Color color;
+    private BallColor color;
 
     public Ball() {
     }
 
-    public Ball(int weight, Color color) {
-        this.weight = weight;
+    public Ball(int weight, BallColor color) {
+        this.weight = Math.min(MAX_WEIGHT, weight);
         this.color = color;
     }
 
@@ -17,14 +21,39 @@ public class Ball {
     }
 
     public void setWeight(int weight) {
-        this.weight = weight;
+        this.weight = Math.min(MAX_WEIGHT, weight);
     }
 
-    public Color getColor() {
+    public BallColor getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(BallColor color) {
         this.color = color;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Ball ball = (Ball) o;
+
+        return color == ball.color && weight == ball.weight;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = weight;
+        result = 31 * result + color.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Ball.class.getSimpleName() + "[", "]")
+                .add("weight=" + weight)
+                .add("color=" + color)
+                .toString();
     }
 }

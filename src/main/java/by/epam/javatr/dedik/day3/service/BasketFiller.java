@@ -2,13 +2,11 @@ package by.epam.javatr.dedik.day3.service;
 
 import by.epam.javatr.dedik.day3.entity.Ball;
 import by.epam.javatr.dedik.day3.entity.Basket;
-import by.epam.javatr.dedik.day3.entity.Color;
+import by.epam.javatr.dedik.day3.entity.BallColor;
 
 import java.util.Random;
 
 public class BasketFiller {
-    public static final int MAX_BALL_WEIGHT = 50;
-
     private Random random = new Random();
 
     public void randomFill(Basket basket) {
@@ -32,8 +30,8 @@ public class BasketFiller {
     }
 
     public Ball randomBall() {
-        int randomWeight = random.nextInt(MAX_BALL_WEIGHT);
-        Color randomColor = Color.values()[random.nextInt(Color.values().length)];
+        int randomWeight = random.nextInt(Ball.MAX_WEIGHT);
+        BallColor randomColor = BallColor.values()[random.nextInt(BallColor.values().length)];
         return new Ball(randomWeight, randomColor);
     }
 }
