@@ -1,5 +1,6 @@
 package by.epam.javatr.dedik.day3.entity;
 
+import java.util.Optional;
 import java.util.StringJoiner;
 
 public class Ball {
@@ -24,8 +25,8 @@ public class Ball {
         this.weight = Math.min(MAX_WEIGHT, weight);
     }
 
-    public BallColor getColor() {
-        return color;
+    public Optional<BallColor> getColor() {
+        return Optional.of(color);
     }
 
     public void setColor(BallColor color) {

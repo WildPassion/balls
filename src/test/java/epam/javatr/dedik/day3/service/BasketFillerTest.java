@@ -34,6 +34,6 @@ public class BasketFillerTest {
         int countBalls = 10;
         Basket basket = new Basket(capacity);
         filler.randomFill(basket, 10);
-        Assert.assertTrue(basket.getValue() < BasketFiller.MAX_BALL_WEIGHT * countBalls);
+        Assert.assertTrue(basket.getValue() < Basket.MAX_CAPACITY * countBalls);
     }
 }

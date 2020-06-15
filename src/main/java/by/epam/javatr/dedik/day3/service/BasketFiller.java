@@ -1,8 +1,8 @@
 package by.epam.javatr.dedik.day3.service;
 
 import by.epam.javatr.dedik.day3.entity.Ball;
-import by.epam.javatr.dedik.day3.entity.Basket;
 import by.epam.javatr.dedik.day3.entity.BallColor;
+import by.epam.javatr.dedik.day3.entity.Basket;
 
 import java.util.Random;
 
@@ -21,7 +21,7 @@ public class BasketFiller {
         Ball ball;
         for (int i = 0; i < count; i++) {
             ball = randomBall();
-            if (basket.hasPlace(ball)){
+            if (basket.hasPlace(ball)) {
                 basket.addBall(ball);
             } else {
                 break;
@@ -31,7 +31,9 @@ public class BasketFiller {
 
     public Ball randomBall() {
         int randomWeight = random.nextInt(Ball.MAX_WEIGHT);
-        BallColor randomColor = BallColor.values()[random.nextInt(BallColor.values().length)];
+        int randomIndex = random.nextInt(BallColor.values().length);
+        BallColor randomColor = BallColor.values()[randomIndex];
+
         return new Ball(randomWeight, randomColor);
     }
 }
