@@ -5,6 +5,6 @@ import by.epam.javatr.dedik.day3.entity.BallColor;
 
 public class BallCounter {
     public long countBalls(Basket basket, BallColor color) {
-        return basket.getBalls().stream().filter(ball -> ball.getColor() == color).count();
+        return basket.getBalls().stream().filter(ball -> ball.getColor().get() == color).count();
     }
 }
